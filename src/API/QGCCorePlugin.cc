@@ -81,6 +81,11 @@ const QVariantList &QGCCorePlugin::analyzePages()
             tr("Log Download"),
             QUrl::fromUserInput(QStringLiteral("qrc:/qml/LogDownloadPage.qml")),
             QUrl::fromUserInput(QStringLiteral("qrc:/qmlimages/LogDownloadIcon.svg")))),
+
+        QVariant::fromValue(new QmlComponentInfo(
+            tr("CSIE"),
+            QUrl::fromUserInput(QStringLiteral("qrc:/qml/new_page.qml")),
+            QUrl::fromUserInput(QStringLiteral("qrc:/qmlimages/camera.svg")))),
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
         QVariant::fromValue(new QmlComponentInfo(
             tr("GeoTag Images"),

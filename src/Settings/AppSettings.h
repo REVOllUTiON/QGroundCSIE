@@ -53,6 +53,8 @@ public:
     DEFINE_SETTINGFACT(gstDebugLevel)
     DEFINE_SETTINGFACT(followTarget)
     DEFINE_SETTINGFACT(qLocaleLanguage)
+    DEFINE_SETTINGFACT(qModes)
+    DEFINE_SETTINGFACT(qCameraModes)
     DEFINE_SETTINGFACT(disableAllPersistence)
     DEFINE_SETTINGFACT(saveCsvTelemetry)
     DEFINE_SETTINGFACT(firstRunPromptIdsShown)
@@ -129,6 +131,8 @@ private slots:
     void _indoorPaletteChanged();
     void _checkSavePathDirectories();
     void _qLocaleLanguageChanged();
+    void _qModesChanged();
+    void _qCameraModesChanged();
     void _mavlink2SigningKeyChanged();
 
 private:
@@ -136,6 +140,7 @@ private:
 
     static QList<QLocale::Language> _rgReleaseLanguages;
     static QList<QLocale::Language> _rgPartialLanguages;
+    
 
     typedef struct {
         QLocale::Language   languageId;

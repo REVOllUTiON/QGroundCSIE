@@ -334,6 +334,7 @@ ApplicationWindow {
                             }
                         }
 
+
                         SubMenuButton {
                             id:                 setupButton
                             height:             toolSelectDialog._toolButtonHeight
@@ -346,7 +347,7 @@ ApplicationWindow {
                                     mainWindow.showVehicleSetupTool()
                                 }
                             }
-                        }
+                        } 
 
                         SubMenuButton {
                             id:                 settingsButton

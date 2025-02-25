@@ -185,6 +185,25 @@ DECLARE_SETTINGSFACT_NO_FUNC(AppSettings, indoorPalette)
     return _indoorPaletteFact;
 }
 
+DECLARE_SETTINGSFACT_NO_FUNC(AppSettings, qModes)
+{
+    if (!_qModesFact) {
+        _qModesFact = _createSettingsFact(qModesName);
+        connect(_qModesFact, &Fact::rawValueChanged, this, &AppSettings::_qModesChanged);
+    }
+    return _qModesFact;
+}
+
+DECLARE_SETTINGSFACT_NO_FUNC(AppSettings, qCameraModes)
+{
+    if (!_qCameraModesFact) {
+         _qCameraModesFact = _createSettingsFact(qCameraModesName);
+        connect(_qCameraModesFact, &Fact::rawValueChanged, this, &AppSettings::_qCameraModesChanged);
+    }
+    return _qCameraModesFact;
+}
+
+
 DECLARE_SETTINGSFACT_NO_FUNC(AppSettings, qLocaleLanguage)
 {
     if (!_qLocaleLanguageFact) {
@@ -265,7 +284,14 @@ void AppSettings::_indoorPaletteChanged(void)
 {
     QGCPalette::setGlobalTheme(indoorPalette()->rawValue().toBool() ? QGCPalette::Dark : QGCPalette::Light);
 }
-
+void AppSettings::_qModesChanged(void)
+{
+    //changeDronesMode();
+}
+void AppSettings::_qCameraModesChanged(void)
+{
+    //changeCamerasMode();
+}
 void AppSettings::_mavlink2SigningKeyChanged(void)
 {
     LinkManager::instance()->resetMavlinkSigning();

@@ -230,6 +230,22 @@
     "default":     2
 },
 {
+    "name":             "qModes",
+    "shortDesc": "Modes for Autopilot",
+    "type":             "uint32",
+    "enumStrings":      "AltHold,Loiter,RTL",
+    "enumValues":       "0,1,2",
+    "default":     2
+},
+{
+    "name":             "qCameraModes",
+    "shortDesc": "Modes for Camera",
+    "type":             "uint32",
+    "enumStrings":      "Follow,Detect,Disable",
+    "enumValues":       "0,1,2",
+    "default":     2
+},
+{
     "name":                 "apmStartMavlinkStreams",
     "shortDesc":     "Request start of MAVLink telemetry streams (ArduPilot only)",
     "type":                 "bool",

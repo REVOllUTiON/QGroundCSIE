@@ -157,7 +157,7 @@ endif()
 include(Qt6QGCConfiguration)
 
 set(QT_QML_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/qml" CACHE PATH "Install path for QML" FORCE)
-set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/qml ${CMAKE_BINARY_DIR}/imports CACHE STRING "Extra QML Import Paths" FORCE)
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/qml ${CMAKE_SOURCE_DIR}/src/QmlControls/QGroundControl ${CMAKE_SOURCE_DIR}/src/QmlControls ${CMAKE_BINARY_DIR}/imports CACHE STRING "Extra QML Import Paths" FORCE)
 add_compile_definitions(QT_DISABLE_DEPRECATED_UP_TO=0x060800)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")

@@ -9,7 +9,7 @@
 
 import QtQuick
 import QtQuick.Window
-import QtQuick.Controls
+import QtQuick.Controls 
 
 import QGroundControl
 import QGroundControl.Palette
@@ -125,4 +125,24 @@ Rectangle {
             onPopout:   mainWindow.createrWindowedAnalyzePage(panelLoader.title, panelLoader.source)
         }
     }
+
+    /*Loader {
+        id:                     panelLoader_video
+        anchors.topMargin:      _verticalMargin
+        anchors.bottomMargin:   _verticalMargin
+        anchors.leftMargin:     _horizontalMargin
+        anchors.rightMargin:    _horizontalMargin
+        anchors.left:           divider.right
+        anchors.right:          parent.right
+        anchors.top:            parent.top
+        anchors.bottom:         parent.bottom
+        source:                 "new_page.qml"
+
+        property string title
+
+        Connections {
+            target:     panelLoader.item
+            onPopout:   mainWindow.createrWindowedAnalyzePage(panelLoader.title, panelLoader.source)
+        }
+    }*/
 }

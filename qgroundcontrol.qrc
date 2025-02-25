@@ -348,6 +348,8 @@
         <file alias="Viewer3D/Models3D/Viewer3DVehicleItems.qml">src/Viewer3D/Viewer3DQml/Models3D/Viewer3DVehicleItems.qml</file>
         <file alias="Viewer3D/Viewer3DProgressBar.qml">src/Viewer3D/Viewer3DQml/Viewer3DProgressBar.qml</file>
         <file alias="QGroundControl/FlightDisplay/FlyViewTopRightPanel.qml">src/FlightDisplay/FlyViewTopRightPanel.qml</file>
+        <file alias="new_page.qml">src/AnalyzeView/new_page.qml</file>
+        <file alias="FlightDisplayViewVideo.qml">src/AnalyzeView/FlightDisplayViewVideo.qml</file>
     </qresource>
     <qresource prefix="/FirstRunPromptDialogs">
         <file alias="UnitsFirstRunPrompt.qml">src/FirstRunPromptDialogs/UnitsFirstRunPrompt.qml</file>
@@ -435,4 +437,6 @@
     <qresource prefix="/ShaderFragment">
         <file alias="earthMaterial.frag">src/Viewer3D/Shaders/earthMaterial.frag</file>
     </qresource>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/new/prefix2"/>
 </RCC>
