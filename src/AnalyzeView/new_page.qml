@@ -42,8 +42,8 @@ AnalyzePage {
 
             Item {
                 Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-                Layout.preferredWidth: 400
-                Layout.preferredHeight: 300
+                Layout.preferredWidth: 1280
+                Layout.preferredHeight: 720
 
                 property Item pipView
                 property Item pipState: videoPipState
@@ -57,13 +57,13 @@ AnalyzePage {
                     isDark: true
 
                     onWindowAboutToOpen: {
-                        QGroundControl.videoManager.stopVideo();
+                        QGroundControl.videoManager.startVideo();
                         videoStartDelay.start();
                     }
 
                     onWindowAboutToClose: {
                         QGroundControl.videoManager.stopVideo();
-                        videoStartDelay.start();
+                        videoStartDelay.stop();
                     }
 
                     onStateChanged: {
@@ -71,27 +71,51 @@ AnalyzePage {
                     }
                 }
 
-                Timer {
-                    id: videoStartDelay
-                    interval: 2000
-                    running: false
-                    repeat: false
-                    onTriggered: QGroundControl.videoManager.startVideo()
-                }
 
-                //-- Video Streaming
-                FlightDisplayViewVideo {
-                    id: videoStreaming
-                    anchors.fill: parent
-                    useSmallFont: true
-                    visible: true //QGroundControl.videoManager.isStreamSource
-                }
+                // FlyViewVideo {
+                //     id:         videoControl
+                //     pipView:    _pipView
+                // }
+
+                // PipView {
+                //     id:                     _pipView
+                //     anchors.left:           parent.left
+                //     anchors.bottom:         parent.bottom
+                //     anchors.margins:        _toolsMargin
+                //     item1IsFullSettingsKey: "MainFlyWindowIsMap"
+                //     item1:                  mapControl
+                //     item2:                  QGroundControl.videoManager.hasVideo ? videoControl : null
+                //     show:                   QGroundControl.videoManager.hasVideo && !QGroundControl.videoManager.fullScreen &&
+                //                                 (videoControl.pipState.state === videoControl.pipState.pipState || mapControl.pipState.state === mapControl.pipState.pipState)
+                //     z:                      QGroundControl.zOrderWidgets
+
+                //     property real leftEdgeBottomInset: visible ? width + anchors.margins : 0
+                //     property real bottomEdgeLeftInset: visible ? height + anchors.margins : 0
+                // }
+
+
+
+                // Timer {
+                //     id: videoStartDelay
+                //     interval: 2000
+                //     running: false
+                //     repeat: false
+                //     onTriggered: QGroundControl.videoManager.startVideo()
+                // }
+
+                // //-- Video Streaming
+                // FlightDisplayViewVideo {
+                //     id: videoStreaming
+                //     anchors.fill: parent
+                //     useSmallFont: true
+                //     visible: QGroundControl.videoManager.isStreamSource
+                // }
                 //-- UVC Video (USB Camera or Video Device)
                 Loader {
                     id: cameraLoader
                     anchors.fill: parent
-                    visible: true //QGroundControl.videoManager.isUvc
-                    source:  "qrc:/qml/FlightDisplayViewDummy.qml" //QGroundControl.videoManager.uvcEnabled ? "qrc:/qml/FlightDisplayViewUVC.qml" : "qrc:/qml/FlightDisplayViewDummy.qml"
+                    visible: QGroundControl.videoManager.isUvc
+                    source:  QGroundControl.videoManager.uvcEnabled ? "qrc:/qml/FlightDisplayViewUVC.qml" : "qrc:/qml/FlightDisplayViewDummy.qml"
                 }
 
                 QGCLabel {
